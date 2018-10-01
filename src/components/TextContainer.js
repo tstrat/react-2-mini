@@ -6,9 +6,10 @@ export default class TextContainer extends Component {
     this.state = {
       text: ''
     }
+    this.updateText = this.updateText.bind(this);
   }
 
-  updateText(e) {
+  updateText = (e) => {
     this.setState({
       text: e.target.value
     })
@@ -18,7 +19,11 @@ export default class TextContainer extends Component {
     return (
       <div className="textContainer">
         <textarea 
-          // style={  }
+          style={{
+            fontFamily: this.props.fontFamily,
+            color: this.props.fontColor,
+            fontSize: this.props.fontSize + "px"  
+          }}
           onChange={this.updateText}
           value={this.state.text} 
           placeholder='Start typing your thoughts here!'
